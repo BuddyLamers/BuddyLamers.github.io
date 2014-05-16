@@ -14,7 +14,10 @@
 
 /* Container */
 
-
+	.middle {
+		margin: auto;
+	}
+	
 	iframe	{
 		width: 1000px;
 		height: auto;
