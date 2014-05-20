@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asteroids</title>
+    <script src="js/asteroids/keymaster/keymaster.js"></script>
+    <script src="js/asteroids/inheritance.js"></script>
+    <script src="js/asteroids/movingObject.js"></script>
+    <script src="js/asteroids/asteroids.js"></script>
+    <script src="js/asteroids/bullet.js"></script>
+    <script src="js/asteroids/ship.js"></script>
+    <script src="js/asteroids/game.js"></script>
+
+
+<style type="text/css">
+
+canvas {
+    float: left;
+}
+
+.directions {
+    float: left;
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <canvas width="500" height="500"></canvas>
+
+    <!-- // <script src="circles.js"></script> -->
+    <script>
+        var canvas = document.getElementsByTagName("canvas")[0];
+        var ctx = canvas.getContext("2d");
+        new Asteroids.Game(6).start(ctx);
+    </script>
+    <div class="directions">
+        <p>Left/Right: turn</p>
+    <p>Up/Down: move</p>
+    <p>Spacebar: fire</p>
+    </div>
+    
+</body>
+</html>
