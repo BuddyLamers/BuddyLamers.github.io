@@ -5,7 +5,7 @@
     <script src="js/asteroids/keymaster/keymaster.js"></script>
     <script src="js/asteroids/inheritance.js"></script>
     <script src="js/asteroids/movingObject.js"></script>
-    <script src="js/asteroids/asteroids.js"></script>
+    <script src="js/asteroids/asteroid.js"></script>
     <script src="js/asteroids/bullet.js"></script>
     <script src="js/asteroids/ship.js"></script>
     <script src="js/asteroids/game.js"></script>
@@ -15,10 +15,18 @@
 
 canvas {
     float: left;
+    border: 5px solid black;
+    margin: 0px, 100px, 100px, 100px;
 }
 
 .directions {
     float: left;
+   margin-left: 3px;
+}
+
+ul {
+    list-style: none;
+    
 }
 
 
@@ -26,24 +34,85 @@ canvas {
 </style>
 
 </head>
-
-<div id="header-wrapper">              
-<a class="fa fa-cog" href="coding-projects.html"><span>Back to Coding Projects</span></a>
-</div>
-
 <body>
     <canvas width="500" height="500"></canvas>
 
-    <!-- // <script src="circles.js"></script> -->
+    <ul>  
+    <li>
+        <button id="decrease-bulletspeed">Decrease Bullet Speed</button>
+        <button id="increase-bulletspeed">Increase Bullet Speed</button>
+    </li> 
+    <li>
+        <!-- rotation speed DA-->
+        <button id="decrease-rotation-speed">Decrease Rotation Speed</button>
+        <button id="increase-rotation-speed">Increase Rotation Speed</button>
+    </li> 
+    <li>
+        <!-- accelleration DV -->
+        <button id="decrease-acceleration">Decrease Ship Acceleration</button>
+        <button id="increase-acceleration">Increase Ship Acceleration</button>
+    </li>
+        <!-- invincible -->
+        <button id="invincible">Become Invincible</button>
+        <button id="vincible">Become Vincible</button>
+    </ul>
+    
+
     <script>
+        
+
         var canvas = document.getElementsByTagName("canvas")[0];
         var ctx = canvas.getContext("2d");
-        new Asteroids.Game(6).start(ctx);
+        window.asteroidsGame = new Asteroids.Game(10);
+
+
+        
+
+        asteroidsGame.start(ctx);
+
+
+
+
+        $('#increase-bullet-speed').click(function(){
+        Asteroids.Game.BULLETSPEED += .5;
+        });
+        $('#decrease-bullet-speed').click(function(){
+        Asteroids.Game.BULLETSPEED -= .5;
+        });
+        $('#increase-rotation-speed').click(function(){
+        Asteroids.Game.DA += .05;
+        });
+        $('#decrease-rotation-speed').click(function(){
+        Asteroids.Game.DA -= .05;
+        });
+        $('#increase-acceleration').click(function(){
+        Asteroids.Game.DV += .025;
+        });
+        $('#decrease-acceleration').click(function(){
+        Asteroids.Game.DV -= .025;
+        });
+        $('#invincible').click(function(){
+        Asteroids.Game.INVINCIBLE = true;
+        });
+        $('#vincible').click(function(){
+        Asteroids.Game.INVINCIBLE = false;
+        });
+        
     </script>
     <div class="directions">
+        <p>The ship starts invincible!</p>
         <p>Left/Right: turn</p>
     <p>Up/Down: move</p>
     <p>Spacebar: fire</p>
+    <p>Check me out on 
+        <a href="https://github.com/BuddyLamers/asteroids">GitHub</a>
+    </p>
+    <p>Or check out my other coding projects at
+        <a href="http://www.buddylamers.me/coding-projects.html">buddylamers.me</a>
+    </p>
+    <p>Or take a look at my
+        <a href="http://www.buddylamers.me/coding-projects.html">Resume</a>!
+    </p>
     </div>
     
 </body>
